@@ -30,13 +30,13 @@ set('ask_unlock_if_locked', True)
 
 
 set('user', 'rails')
-set('hosts', ['indopus.in'])
+set('hosts', ['myprojectdnsname.in'])
 
 
 # Settings - application
 
-set('deploy_to', '/home/rails/apps/vidvaan_deploy')
-set('repository', 'git@github.com:Bizongo/vidvaan.git')
+set('deploy_to', '/home/ubuntu/apps/myproject_deploy')
+set('repository', 'git@github.com:myproject.git')
 set('branch', 'master')
 
 
@@ -44,7 +44,7 @@ set('branch', 'master')
 
 
 set('shared_dirs', ['logs'])
-set('shared_files', ['config/config.py','config/google_credentials.json','startup.sh'])
+set('shared_files', ['startup.sh'])
 
 
 # Settings - explicit owner of [PUBLIC] shared files/dirs
@@ -95,7 +95,7 @@ def deploy():
     link_shared_paths()
 
     #Activating the virtualenv
-    run('source /home/rails/.virtualenvs/vidvaan-staging-python3/bin/activate')
+    run('source /home/ubuntu/myprojectenv/bin/activate')
 
     #Install dependencies
     run('sudo pip3 install -r requirements.txt')
